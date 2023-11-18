@@ -15,9 +15,11 @@ namespace ReconApp
                 DataTable schoolDataTable = controller.ConvertCsvToDataTable(schoolPath);
                 DataTable bankDataTable = controller.ConvertCsvToDataTable(bankPath);
 
-                string schoolHeader = Controller.Controller.GetUserSelectedHeader(schoolDataTable);
+                //Map the data
+                List<DataTable> mapppedDataTable = Logic.Processor.MappedDataTable(schoolDataTable, bankDataTable);
 
-                List<ColumnMapping> columnMappings =  Controller.Controller.GetColumnMappings(schoolDataTable, bankDataTable);
+                //Reconciliation next
+
             }
             catch (Exception ex)
             {

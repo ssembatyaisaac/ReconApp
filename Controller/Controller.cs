@@ -87,6 +87,7 @@ namespace ReconApp.Controller
             Console.WriteLine();
 
             Console.WriteLine("Enter column mappings (SourceIndex DestinationIndex):");
+            Console.WriteLine("Start with the most important columns and follow the order. i.e Primary key column of your Data" );
             Console.WriteLine("(Press Enter to finish)");
 
             while (true)
@@ -124,6 +125,14 @@ namespace ReconApp.Controller
             }
 
             return columnMappings;
+        }
+
+        public static DataTable CreateRequiredDataTable(DataTable dt, string[] headers)
+        {
+            // Create a new datatable with selected columns and data
+            DataTable requiredDataTable = dt.DefaultView.ToTable(false, headers);
+
+            return requiredDataTable;
         }
     }
 }
